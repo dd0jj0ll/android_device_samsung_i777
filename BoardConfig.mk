@@ -27,6 +27,9 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/i777/bluetooth
 # NFC
 BOARD_HAVE_NFC := true
 
+# BLN
+BOARD_HAS_BLN := true
+
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/samsung/u1
 TARGET_KERNEL_CONFIG := cyanogenmod_i777_defconfig
