@@ -17,7 +17,7 @@
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
 
--include device/samsung/galaxys2-common/BoardCommonConfig.mk
+-include device/samsung/u1-common/BoardCommonConfig.mk
 
 TARGET_BOARD_INFO_FILE := device/samsung/i777/board-info.txt
 
@@ -28,7 +28,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/i777/bluetooth
 BOARD_HAVE_NFC := true
 
 # Inline kernel building
-TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
+TARGET_KERNEL_SOURCE := kernel/samsung/u1
 TARGET_KERNEL_CONFIG := cyanogenmod_i777_defconfig
 
 # assert

@@ -15,7 +15,7 @@
 #
 
 # Include common makefile
-$(call inherit-product, device/samsung/galaxys2-common/common.mk)
+$(call inherit-product, device/samsung/u1-common/common.mk)
 
 LOCAL_PATH := device/samsung/i777
 
@@ -51,36 +51,35 @@ PRODUCT_COPY_FILES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-	libnfc \
-	libnfc_jni \
-	Nfc \
-	nfc.exynos4 \
-	Tag
+    libnfc \
+    libnfc_jni \
+    Nfc \
+    nfc.exynos4 \
+    Tag
 
 # Commands to migrate prefs from com.android.nfc3 to com.android.nfc
 PRODUCT_COPY_FILES += $(call add-to-product-copy-files-if-exists,\
-packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt)
+    packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt)
 
 # file that declares the MIFARE NFC constant
 PRODUCT_COPY_FILES += \
-	frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml
+    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml
 
 # NFC EXTRAS add-on API
 PRODUCT_PACKAGES += \
-	com.android.nfc_extras
+    com.android.nfc_extras
 PRODUCT_COPY_FILES += \
-	frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
-	frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
 
 # NFCEE access control
 ifeq ($(TARGET_BUILD_VARIANT),user)
-    	NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access.xml
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access.xml
 else
-    	NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access_debug.xml
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access_debug.xml
 endif
 
 PRODUCT_COPY_FILES += \
-    	$(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
+    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
 $(call inherit-product-if-exists, vendor/samsung/i777/i777-vendor.mk)
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
